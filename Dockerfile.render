@@ -1,0 +1,25 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY render-server/package*.json ./
+
+# Install dependencies (including Prisma for db:push)
+RUN npm install
+
+# Copy server files
+COPY render-server/ ./
+
+# Generate Prisma client
+RUN npx prisma generate
+
+# Expose port
+EXPOSE 3001
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3001/api/health || exit 1
+
+# Start server
+CMD ["node", "server.js"]

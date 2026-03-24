@@ -1,0 +1,33 @@
+{
+  "name": "nexo-messenger-render",
+  "version": "2.0.0",
+  "description": "Nexo Messenger - Ultra Secure Server with 30-round encryption",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "init-db": "node init-db.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.3.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^8.2.1",
+    "form-data": "^4.0.0",
+    "ioredis": "^5.4.1",
+    "jsonwebtoken": "^9.0.2",
+    "mime-types": "^3.0.1",
+    "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.2",
+    "socket.io": "^4.8.1",
+    "uuid": "^11.0.5"
+  },
+  "devDependencies": {
+    "prisma": "^6.3.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

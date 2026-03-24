@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+
+# Uploads (но не .gitkeep)
+uploads/*
+!uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Prisma
+prisma/schema.prisma.bak
+
+# Build info
+*.tsbuildinfo

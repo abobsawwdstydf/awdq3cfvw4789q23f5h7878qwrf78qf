@@ -1,0 +1,27 @@
+{
+  "name": "nexo-messenger",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k -n server,web \"npm run dev -w apps/server\" \"npm run dev -w apps/web\"",
+    "build": "npm run build -w apps/server && npm run build -w apps/web",
+    "start": "node render-server/server.js",
+    "start:render": "node render-server/server.js",
+    "db:push": "npx prisma db push --schema=apps/server/prisma/schema.prisma",
+    "db:seed": "node render-server/init-db.js",
+    "db:init": "npm run db:push && npm run db:seed",
+    "setup": "npm install && npm run db:init",
+    "render:build": "cd render-server && npm install && npx prisma generate",
+    "render:start": "node render-server/server.js"
+  },
+  "workspaces": [
+    "apps/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

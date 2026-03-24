@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database
+*.db
+*.db-journal
+prisma/migrations/
+
+# Uploads
+apps/server/uploads/*
+!apps/server/uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Vite
+.vite/
+
+# Prisma
+prisma/schema.prisma.bak
+
+# Redis dump
+dump.rdb
+
+# Secrets (keep example files)
+!.env.example
