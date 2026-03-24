@@ -8,7 +8,7 @@ datasource db {
 }
 
 model User {
-  id          String   @id @default(auto())
+  id          String   @id @default(uuid())
   username    String   @unique
   displayName String   @default("")
   email       String?  @unique
@@ -37,7 +37,7 @@ model User {
 }
 
 model UserAvatar {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   userId    String
   url       String
   position  Int      @default(0)
@@ -50,7 +50,7 @@ model UserAvatar {
 }
 
 model Chat {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   type      String   @default("personal")
   name      String?
   username  String?  @unique
@@ -66,7 +66,7 @@ model Chat {
 }
 
 model ChatAvatar {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   chatId    String
   url       String
   position  Int      @default(0)
@@ -79,7 +79,7 @@ model ChatAvatar {
 }
 
 model ChatMember {
-  id         String   @id @default(auto())
+  id         String   @id @default(uuid())
   chatId     String
   userId     String
   role       String   @default("member") // member, admin, co-owner, owner
@@ -96,7 +96,7 @@ model ChatMember {
 }
 
 model LiveStream {
-  id          String   @id @default(auto())
+  id          String   @id @default(uuid())
   chatId      String
   ownerId     String
   streamUrl   String?
@@ -112,7 +112,7 @@ model LiveStream {
 }
 
 model Message {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   chatId    String
   senderId  String
   content   String?
@@ -140,7 +140,7 @@ model Message {
 }
 
 model Media {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   messageId String
   type      String
   url       String
@@ -155,7 +155,7 @@ model Media {
 }
 
 model Reaction {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   messageId String
   userId    String
   emoji     String
@@ -168,7 +168,7 @@ model Reaction {
 }
 
 model ReadReceipt {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   messageId String
   userId    String
   readAt    DateTime @default(now())
@@ -180,7 +180,7 @@ model ReadReceipt {
 }
 
 model PinnedMessage {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   chatId    String
   messageId String
   pinnedAt  DateTime @default(now())
@@ -192,7 +192,7 @@ model PinnedMessage {
 }
 
 model Story {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   userId    String
   type      String   @default("text")
   mediaUrl  String?
@@ -206,7 +206,7 @@ model Story {
 }
 
 model StoryView {
-  id       String   @id @default(auto())
+  id       String   @id @default(uuid())
   storyId  String
   userId   String
   viewedAt DateTime @default(now())
@@ -218,7 +218,7 @@ model StoryView {
 }
 
 model HiddenMessage {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   messageId String
   userId    String
   hiddenAt  DateTime @default(now())
@@ -229,7 +229,7 @@ model HiddenMessage {
 }
 
 model Friendship {
-  id        String   @id @default(auto())
+  id        String   @id @default(uuid())
   userId    String
   friendId  String
   status    String   @default("pending") // pending | accepted | declined
@@ -241,3 +241,4 @@ model Friendship {
 
   @@unique([userId, friendId])
 }
+
